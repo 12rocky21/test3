@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>If One Day…</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fbe9e7, #fff3e0, #e8eaf6);
+      --card-bg: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.35);
+      --primary: #6a5acd;
+      --secondary: #ff7e5f;
+      --text: #3a3a3a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg-gradient);
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      color: var(--text);
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    nav.navbar {
+      width: 100%;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #fff;
+    }
+
+    .nav-links .close-btn {
+      display: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-left: auto;
+    }
+
+    /* ---------------- HAMBURGER ---------------- */
+    #menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 100vh;
+      padding: 80px 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid var(--glass-border);
+      gap: 20px;
+    }
+
+    #menu-toggle:checked ~ .nav-links .close-btn {
+      display: block;
+    }
+
+    /* ---------------- CONTAINER ---------------- */
+    .container {
+      width: 95%;
+      max-width: 650px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      padding: 40px;
+      border-radius: 22px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .button-group {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 14px;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .hamburger {
+        display: flex;
+        margin-left: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR START -->
+<nav class="navbar">
+  <div class="logo">💜 HAPPY NEW YEAR</div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label class="hamburger" for="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="message.html">Message</a></li>
+    <li><a href="gifts.html">Gifts</a></li>
+    <li><a href="final.html" class="active" >Surprise</a></li>
+    <!-- <li class="close-btn" onclick="document.getElementById('menu-toggle').checked=false;">✕</li> -->
+  </ul>
+</nav>
+</nav>
+<div class="container">
+  <h1>Just in Case… 🖤</h1>
+
+  <p>
+    Life is unpredictable.  
+    And if someday, for any reason…  
+    our paths drift apart…
+  </p>
+
+  <p>
+    I want you to know this—  
+    you were one of the most meaningful parts of my life.  
+    No distance, no silence, no ending  
+    can erase the good you brought into my world.
+  </p>
+
+  <p>
+    And even if we turn into strangers again,  
+    my prayers for you will never stop.
+  </p>
+
+  <!-- YOUR MESSAGE INSERTED BELOW, UNCHANGED -->
+  <p>
+Heyy, just writing this in case the Lord's coming is near....or in the extreme edge case if you don't wanna continue anymore and its truly the end or if something happens to me.
+<br> <br>
+I just wanted you to know I have always loved you, more than you can ever imagine, you know even after everything that has happened, I would still give the most important thing away just to see your smile......I genuinely want to see you smile, happy, successful and growing in God's will each day! 
+I wanted to be a part of your journey, but if this is what God has in store, then we can't do anything about it.
+I hope I was a good character in your life 🙃 hope I didn't spoil you.....or your story!
+<br> <br>
+I can't even imagine how much blessed I am to have a friend like you.....
+<br> <br>
+I'll always be glad that we were friends, the best of friends, I'll cherish the memories we had, and maybe someday if I have grandkids, I'll tell them about our friendship too, that is only if I survive till then 😁
+<br><br>
+Honestly I didn't want to have this section, but I have given my all here, I am waiting for you to reach out....all this while and no matter what I did....the situation ain't getting any better and I can't do anything if I'm the only one holding on...
+<br><br>
+And no one can force a friendship, tbh I was ready to live out my whole life with you but maybe that's where I went wrong....I might have focused on this more than God
+<br>
+Maybe God has put everything to prepare us for the future, and I don't know if you'll be able to reach out in the future, but in the most extreme rarest case that you don't!
+I just wanna say -
+<br><br>
+Thank you for everything! 😃
+For all the love, lessons, support and prayers!
+You made my life easier simply by being there 😁
+<br><br>
+I'll need to learn how to go on from here but I trust God.....
+<br><br>
+If it's God's will, our paths will definitely cross and if it's not in God's will no matter what anyone does, it won't work out so yeah let's see what God has in store for us.
+I'm not gonna force anything....
+<br><br>
+I'm sorry if I failed in being your best friend! I'm sorry for all the mazhe leying and sorry for all the pain or hardship you had coz of me!
+<br><br>
+I truly wish you the well, I hope you succeed in everything you do and that you stay healthy and happy!
+Always having a smile on your beautiful face! 💫
+<br><br>
+Your Secret Admirer  <br>
+Signing off 
+<br>
+Take care!
+  </p>
+
+  <div class="button-group">
+    <a href="index.html" class="btn">Back</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift 1 • 2026 Calendar</title>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff7f0, #fef9f4, #f8f4ff);
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 95%;
+    max-width: 900px;
+    background: #ffffffcc;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(8px);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, #ff9671, #d65db1);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 25px;
+  }
+
+  details {
+    background: #ffffffee;
+    margin: 15px 0;
+    padding: 18px;
+    border-radius: 18px;
+    border: 1px solid #f0dede;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  summary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #444;
+  }
+
+  .quote {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: #6a4f4b;
+    font-style: italic;
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .day-name {
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    background: #ffe9e0;
+    color: #5a4a47;
+    font-size: 0.9rem;
+  }
+
+  .day {
+    text-align: center;
+    padding: 14px 0;
+    background: #fff;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    border: 1px solid #f1e4e4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+  }
+
+  .empty {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .highlight {
+    background: #ffe1eb !important;
+    border: 1px solid #ffb8cf !important;
+    color: #c73863;
+    font-weight: 700;
+  }
+
+  .back-btn {
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 14px;
+    text-decoration: none;
+    background: linear-gradient(120deg, #6a5acd, #ff7e5f);
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+    text-align: center;
+  }
+
+  .day.highlight {
+  position: relative;
+}
+
+.back-btn:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
+  }
+
+/* hidden by default */
+.day.highlight .popup {
+  display: none;
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  background: #fff0f5;
+  border: 1px solid #ffb8cf;
+  color: #c73863;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  line-height: 1.4;
+  z-index: 10;
+}
+
+/* Show popup when the parent details is open */
+details[open] .day.highlight .popup {
+  display: block;
+}
+
+
+</style>
+
+</head>
+<body>
+  
+<div class="container">
+
+<h1>Gift 1 • Your 2026 Calendar 📅✨</h1>
+
+<!-- ----------------------------------------------------------
+     JANUARY 2026  (Starts Thursday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🌟 January 2026</summary>
+  <p class="quote">“New year, new you… or at least new excuses to walk past the fridge and put that yoga mat to use!”</p>
+
+  <div class="calendar">
+    <!-- Row: Day names -->
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <!-- Jan 2026 starts on Thu: (Sun-Mon-Tue-Wed empty) -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+
+    <div class="day">5</div><div class="day">6</div><div class="day">7</div>
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
+
+    <div class="day">12</div><div class="day">13</div><div class="day">14</div>
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
+
+    <div class="day">19</div><div class="day">20</div><div class="day">21</div>
+    <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
+
+    <div class="day">26</div><div class="day">27</div><div class="day">28</div>
+    <div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     FEBRUARY 2026 (Starts Sunday) – 28 days
+----------------------------------------------------------- -->
+<details>
+  <summary>💗 February 2026</summary>
+  <p class="quote">Love yourself enough to sweat a little… and rock those exercise sessions like a queen.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div>
+    <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+
+    <div class="day">22</div><div class="day">23</div><div class="day">24</div>
+    <div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     MARCH 2026 (Starts Sunday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🌿 March 2026</summary>
+  <p class="quote">“Spring is here! Time to grow… not just flowers, but those muscles too :) You’re becoming someone you can be proud of.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div>
+    <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+
+    <div class="day">22</div><div class="day">23</div><div class="day">24</div>
+    <div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+
+    <div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     APRIL 2026 (Starts Wednesday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🌸 April 2026</summary>
+  <p class="quote">“Every new day is a gift… a gift to try that workout you’ve been scrolling past.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <!-- Empty slots before 1st April (Wed) -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+
+    <!-- Days of April -->
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+    <div class="day">5</div><div class="day">6</div><div class="day">7</div>
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
+
+    <div class="day highlight">12
+      <span class="popup">🎉 Happy Birthday!<br>You are getting old!<br>Congratulations :)</span>
+    </div>
+
+    <div class="day">13</div><div class="day">14</div><div class="day">15</div>
+    <div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div>
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
+    <div class="day">27</div><div class="day">28</div><div class="day">29</div>
+    <div class="day">30</div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     MAY 2026 (Starts Friday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🌞 May 2026</summary>
+  <p class="quote">“Be grateful for small wins… like doing one more push-up than yesterday!”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <!-- May starts on Friday -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="day">1</div><div class="day">2</div>
+
+    <div class="day">3</div><div class="day">4</div><div class="day">5</div>
+    <div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div>
+
+    <div class="day">10</div><div class="day">11</div><div class="day">12</div>
+    <div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div>
+
+    <div class="day">17</div><div class="day">18</div><div class="day">19</div>
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div><div class="day">23</div>
+
+    <div class="day">24</div><div class="day">25</div><div class="day">26</div>
+    <div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div>
+
+    <div class="day">31</div><div class="empty"></div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     JUNE 2026 (Starts Monday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🌿 June 2026</summary>
+  <p class="quote">“Be strong and courageous… or at least strong enough to carry your grocery bags in one trip.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="empty"></div><div class="day">1</div><div class="day">2</div>
+    <div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div>
+
+    <div class="day">7</div><div class="day">8</div><div class="day">9</div>
+    <div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div>
+
+    <div class="day">14</div><div class="day">15</div><div class="day">16</div>
+    <div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div>
+
+    <div class="day">21</div><div class="day">22</div><div class="day">23</div>
+    <div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div>
+
+    <div class="day">28</div><div class="day">29</div><div class="day">30</div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     JULY 2026 (Starts Wednesday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🌻 July 2026</summary>
+  <p class="quote">“Follow your path… even if it’s just a 5 min walk for now.”</p>
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+    <div class="day">5</div><div class="day">6</div><div class="day">7</div>
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
+    <div class="day">12</div><div class="day">13</div><div class="day">14</div>
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
+    <div class="day">19</div><div class="day">20</div><div class="day">21</div>
+    <div class="day">22</div><div class="day">23</div><div class="day">24</div>
+    <div class="day">25</div><div class="day">26</div><div class="day">27</div>
+    <div class="day">28</div><div class="day">29</div><div class="day">30</div>
+    <div class="day">31</div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     AUGUST 2026 (Starts Saturday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🍃 August 2026</summary>
+  <p class="quote">“Your hard work is quietly paying off.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="day">1</div>
+
+    <div class="day">2</div><div class="day">3</div><div class="day">4</div>
+    <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div>
+
+    <div class="day">9</div><div class="day">10</div><div class="day">11</div>
+    <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div>
+
+    <div class="day">16</div><div class="day">17</div><div class="day">18</div>
+    <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day">22</div>
+
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div>
+    <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div>
+
+    <div class="day">30</div><div class="day">31</div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     SEPTEMBER 2026 (Starts Tuesday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🍁 September 2026</summary>
+  <p class="quote">“Be gentle with yourself — you’re learning.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="empty"></div><div class="empty"></div><div class="day">1</div>
+    <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
+
+    <div class="day">6</div><div class="day">7</div><div class="day">8</div>
+    <div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div>
+
+    <div class="day">13</div><div class="day">14</div><div class="day">15</div>
+    <div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div>
+
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
+
+    <div class="day">27</div><div class="day">28</div><div class="day">29</div>
+    <div class="day">30</div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     OCTOBER 2026 (Starts Thursday)
+----------------------------------------------------------- -->
+<!-- ----------------------------------------------------------
+     OCTOBER 2026 (Starts Thursday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🍂 October 2026</summary>
+  <p class="quote">“You are becoming softer and stronger at the same time.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <!-- October starts on Thursday (empty Sun-Wed) -->
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div>
+    <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+
+    <div class="day">22</div><div class="day">23</div><div class="day">24</div>
+    <div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+
+    <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     NOVEMBER 2026 (Starts Sunday)
+----------------------------------------------------------- -->
+<details>
+  <summary>🍁 November 2026</summary>
+  <p class="quote">“You’ve grown in ways you don’t even notice.”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="day">1</div><div class="day">2</div><div class="day">3</div>
+    <div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div>
+
+    <div class="day">8</div><div class="day">9</div><div class="day">10</div>
+    <div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+
+    <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+    <div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+
+    <div class="day">22</div><div class="day">23</div><div class="day">24</div>
+    <div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+
+    <div class="day">29</div><div class="day">30</div><div class="empty"></div>
+    <div class="empty"></div><div class="empty"></div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<!-- ----------------------------------------------------------
+     DECEMBER 2026 (Starts Tuesday)
+----------------------------------------------------------- -->
+<details>
+  <summary>❄️ December 2026</summary>
+  <p class="quote">“You made it. Be proud of every step. Give thanks for the journey… and for all the workouts you actually survived!”</p>
+
+  <div class="calendar">
+    <div class="day-name">Sun</div><div class="day-name">Mon</div><div class="day-name">Tue</div>
+    <div class="day-name">Wed</div><div class="day-name">Thu</div><div class="day-name">Fri</div><div class="day-name">Sat</div>
+
+    <div class="empty"></div><div class="empty"></div><div class="day">1</div>
+    <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div>
+
+    <div class="day">6</div><div class="day">7</div><div class="day">8</div>
+    <div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div>
+
+    <div class="day">13</div><div class="day">14</div><div class="day">15</div>
+    <div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div>
+
+    <div class="day">20</div><div class="day">21</div><div class="day">22</div>
+    <div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div>
+
+    <div class="day">27</div><div class="day">28</div><div class="day">29</div>
+    <div class="day">30</div><div class="day">31</div><div class="empty"></div><div class="empty"></div>
+  </div>
+</details>
+
+<a href="gifts.html" class="back-btn">⬅ Back</a>
+
+</div>
+</body>
+</html>

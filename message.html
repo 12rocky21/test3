@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Message</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fbe9e7, #fff3e0, #e8eaf6);
+      --card-bg: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.35);
+      --primary: #6a5acd;
+      --secondary: #ff7e5f;
+      --text: #3a3a3a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg-gradient);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--text);
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    nav.navbar {
+      width: 100%;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: 0.25s ease;
+    }
+
+ .nav-links li a:hover,
+    .nav-links li a.active {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #fff;
+    }
+
+    /* ---------------- HAMBURGER ---------------- */
+    #menu-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 100vh;
+      padding: 80px 20px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid var(--glass-border);
+      gap: 20px;
+    }
+
+    /* ---------------- MAIN CONTAINER ---------------- */
+    .container {
+      width: 95%;
+      max-width: 780px;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    p, .full-message {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #333;
+      margin-bottom: 0px;
+      white-space: pre-wrap;
+    }
+
+    .button-group {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .btn {
+      display: block;
+      margin: 15px 0;
+      padding: 14px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: white;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      opacity: 0.9;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .hamburger {
+        display: flex;
+        margin-left: 12px;
+      }
+      .container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">💜 HAPPY NEW YEAR</div>
+    
+    <input type="checkbox" id="menu-toggle">
+    <label class="hamburger" for="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="message.html" class="active">Message</a></li>
+      <li><a href="gifts.html">Gifts</a></li>
+      <li><a href="final.html">Surprise</a></li>
+    </ul>
+  </nav>
+<div class="container">
+  <h1>Your Heartfelt Message 💌</h1>
+
+  <p>
+You have no idea how much brightness you bring into my life.
+Your presence feels like comfort…  
+the type of comfort that makes the world a little softer.
+ 
+This page, this space, this whole website—  
+it’s a tiny reflection of how precious you are to me.
+  </p>
+
+  <!-- FULL MESSAGE (NOW WITHOUT THE BOX) -->
+  <div class="full-message">
+Heyy!
+It's finally december.....I still remember how amazing the last one was.....
+Thank you for being there as much you were able to this year as well 😃
+
+Wanted to write my heart down here and let you know how I have been feeling:
+
+I have been trying to talk for quite sometime..... haven't been getting any opportunity.....
+I just wanted to have a conversation about how things have been, how are we gonna face things now and a few other questions...I'll be giving the exact questions what I wanted to ask....
+
+Ever since my Birthday this year....we have not been able to talk properly.....I'm not here to blame you....
+Tbh I was a bit taken by surprise by the length of the wish you had given this year for my birthday.....I expected more but I get that you weren't able to properly do anything since ammachi wasn't well.....
+
+And as things went by I thought probably once things settle down, we'll be able to talk properly but then things got even tougher for you.....I might have been one of the reasons as well when notion was caught as I was typing in that again n again....I didn't knew at the time that it was caught.....
+And as things went by, it got tougher n tougher.....I thought we would atleast try the paper thing, but when you said no to that.....my whole body was in a state of shock.....coz it wasn't just the letter you said no to that day....it was my efforts as well.....
+Then I tried that physically meeting thing, that no also hit me hard.....to the point that my confidence and everything went down.....
+Was in a real bad state....to the point that I couldn't sleep properly for some days.....
+
+In the beginning I was chill that okay, you'll take action once you can, but when I saw you didn't reach out even after its been long, I was panicking.....
+You weren't even initiating anything or making any moves, felt like you were ignoring me...
+It felt like you gave up and moved on, like nothing even mattered.....
+I had been noticing you for quite sometime.....then I could see you texting people in your phone and even then you didn't reach out.....I was even more panicked.....coz you had said you can't text anyone but I could see you doing the same....
+
+Tbh I felt like Moses and Aaron going to Pharoah and getting rejected each Sunday when I was coming to you 😂
+
+Here are the things I would appreciate getting clarity on: 
+- How it all started?
+- What all happened?
+- What all do they know?
+- What all did you say to them?
+- How's the current situation?
+- How much risk can you take now?
+- Honestly speaking what do you think we should do?
+- Why did you not take the letter?
+- Why do you treat me like I'm the enemy?
+- Why were you ignoring me?
+- Just a question, whom are you talking on your phone? 
+- Noticed you can talk to that person without any prblm, then why not with me?
+- Why were you not taking any action?
+- Everytime I had to come up to you for updates 
+- Are you gonna only talk when things are easy and leave when things are tough? Is that the kinda friends you wished to be?
+- How are you trying to talk from your side like what all did you think and try?
+- Btw what happened to the gift situation, did they figure out who gave it, are the gifts still there or thrown?
+
+I'm not gonna push you to do anything....honestly a friendship can only survive when both people are making efforts
+Idk how will things be, but I'm hoping we'll be able to sort this out and get over it....
+
+So yeah there were a pretty rough days this year......
+All you ever asked me of was to be there....I'm trying that as much as I can.....
+To me you are important......
+
+I have tried everything that I can possible do....I haven't left any stoned unturned in terms of efforts.....even when it was tough for me I did what I could.....
+What's left is to make a monument for you but can't do that...budget issues 🙃
+
+Tbh I'm proud of myself....for putting in the efforts even when it was tough.....
+I did everything that was in my power, now I can easily humbly wait on God and you to take action.....
+I'm grateful to God that I got an opportunity to show that I'll not leave during tough times ......
+
+The last time this happened, and I left was coz I couldn't bear to watch you ignore me and act as if nothing even mattered ever.....but I'm not gonna make the same mistake again.....
+
+I'm not gonna leave just because I couldn't handle things but I'm gonna be there this time....
+If you don't want me, that's a different case but atleast from my side, I'm not gonna leave....
+
+So yeah, once things are better for you and if you're still interested to continue, my door will be open if that's what God's will is....
+
+If nothing is working right now, we can talk during prayers.....I'm not gonna ignore you....
+Let me know if you're open to that 
+
+So this is what all I have been feeling....sorry if it came out to be hurtful but I needed to get it out from me.....
+
+And yeah I get it that things are tough for you, and I realise that if smthng more happens they'll take drastic measures so no pressure at all....
+I wanted to see you standing up for us and wanted to feel like you were choosing me, even during your internship, I was like just one day, if we met, that would have been great.....
+But yeah that's just me being selfish, your parents should always come before me 💯
+
+But yeah it is what it is....can't do anything about the past but what's in our hands is how to proceed ahead!
+And I'm open to having a discussion about it!
+
+I'm sorry for trying to pressurize you into meeting physically......
+
+Honestly I miss you alot.....each day but Ik God's in control, he's preparing us in ways for our future....so let's look on to doing our part the best we can....
+
+If you still haven't given up on me, we can still figure smthng out, talking during prayers seems the only option 
+
+I'm sure we'll figure things out in God's right time!
+
+Thank you for being there for me in 2025 as well as much as possible for you!
+Grateful for your presence 😃
+
+I made 3 gifts for you for 2026 as well.....I figured giving anything physically won't be possible for you so I made 3 gifts for you in this website only....you can take a look whenever you want, sorry in advance if something would not working as it supposed to be in the website, not a perfect developer yet....🙁 
+Let me know if you have any feedback about the gifts.......
+
+Hope I did a good job of being your friend.....?
+I'm sorry if I couldn't be there and support you in the way you would have wanted me to do.....
+But yeah hope in 2026, I'll be able to improve and be there for you if you let me!
+
+Before ending this message, I had one more question for you.....
+Did I do a good job in being your friend?
+Would you say  Proverbs - 18:24 of me?
+
+Thank you for all the love, support and care you have shown in 2025....hoping that it'll be present in 2026 as well if God willing!
+
+HAPPY NEW YEAR 🎊 🎉🎗️ JIGGLYPUFF!
+Hope this year brings joy, happiness and prosperity for you!
+Hope you'll start exercising this year finally!!! 😁 
+(Preparing this in advance since you guys are going to Kerala)
+
+With love ❤️,
+Rocky
+  </div>
+  <div class="button-group">
+    <a href="index.html" class="btn">Back</a>
+  </div>
+
+</div>
+
+</body>
+</html>

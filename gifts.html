@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Gifts</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg-gradient: linear-gradient(135deg, #fbe9e7, #fff3e0, #e8eaf6);
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --primary: #6a5acd;
+    --secondary: #ff7e5f;
+    --text: #3a3a3a;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text);
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* ---------------- NAVBAR ---------------- */
+  nav.navbar {
+    width: 100%;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: 0.25s ease;
+  }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: #fff;
+    }
+
+  /* ---------------- HAMBURGER ---------------- */
+  #menu-toggle {
+    display: none;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 80px 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border-left: 1px solid var(--glass-border);
+    gap: 20px;
+  }
+
+  /* ---------------- MAIN CONTAINER ---------------- */
+  .container {
+    width: 95%;
+    max-width: 600px;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 22px;
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  h1 {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 14px;
+    text-decoration: none;
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
+  }
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hamburger {
+      display: flex;
+      margin-left: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">💜 HAPPY NEW YEAR</div>
+  
+  <input type="checkbox" id="menu-toggle">
+  <label class="hamburger" for="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="message.html">Message</a></li>
+    <li><a href="gifts.html" class="active">Gifts</a></li>
+    <li><a href="final.html">Surprise</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h1>Your Gifts Space 🎁</h1>
+
+  <a class="btn" href="gift1.html">🎁 Gift 1 — 2026 Calendar</a>
+  <a class="btn" href="gift2.html">🎁 Gift 2 — Gratitude List</a>
+  <a class="btn" href="gift3.html">🎁 Gift 3 — Mood Notes</a>
+  <a class="btn" href="index.html">Back</a>
+</div>
+
+</body>
+</html>

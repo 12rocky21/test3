@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift 2 - Gratitude List</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ---------------- ROOT VARIABLES ---------------- */
+:root {
+  --primary: #ff91a4;
+  --secondary: #b291ff;
+  --text: #3a3a3a;
+  --card-bg: rgba(255,255,255,0.75);
+  --glass-border: rgba(255,255,255,0.4);
+  --bg-gradient: linear-gradient(135deg, #ffe6f0, #fff0d6, #e6f0ff);
+}
+
+/* ---------------- GLOBAL ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: var(--text);
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav.navbar {
+  width: 100%;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: 0.25s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  color: #fff;
+}
+
+.nav-links .close-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+/* ---------------- HAMBURGER ---------------- */
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#menu-toggle:checked ~ .nav-links {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 80px 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border-left: 1px solid var(--glass-border);
+  gap: 20px;
+}
+
+#menu-toggle:checked ~ .nav-links .close-btn {
+  display: block;
+}
+
+/* ---------------- CONTAINER ---------------- */
+.container {
+  width: 95%;
+  max-width: 800px;
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 30px;
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+h1 {
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.bubble {
+  background: linear-gradient(145deg, #ffd6e8, #ffe0b3);
+  padding: 20px 28px;
+  border-radius: 50%;
+  min-width: 110px;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  box-shadow: 0 6px 20px rgba(255,182,193,0.3), 0 0 8px rgba(255,218,185,0.25);
+  position: relative;
+  animation: cuteFloat 5s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bubble:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 12px 25px rgba(255,182,193,0.5), 0 0 15px rgba(255,218,185,0.5);
+  z-index: 2;
+}
+
+@keyframes cuteFloat {
+  0%   { transform: translate(0,0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  25%  { transform: translate(-5px,-15px) rotate(-2deg); }
+  50%  { transform: translate(5px,-30px) rotate(2deg); opacity: 0.9; }
+  75%  { transform: translate(-5px,-45px) rotate(-1deg); }
+  100% { transform: translate(0,-60px) rotate(0deg); opacity: 0; }
+}
+
+/* Stagger animations */
+.bubble:nth-child(1) { animation-delay: 0s; }
+.bubble:nth-child(2) { animation-delay: 0.3s; }
+/* continue stagger for all bubbles if needed */
+
+.back {
+  width: 100%;
+  margin-top: 35px;
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  position: relative;
+}
+
+.back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+@media(max-width: 768px){
+  .bubble {
+    min-width: 90px;
+    min-height: 90px;
+    font-size: 0.85rem;
+    padding: 15px 18px;
+  }
+  .hamburger {
+    display: flex;
+    margin-left: 12px;
+  }
+  .nav-links {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR START -->
+<nav class="navbar">
+  <div class="logo">🎀 HAPPY NEW YEAR</div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label class="hamburger" for="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="message.html">Message</a></li>
+    <li><a href="gifts.html" class="active">Gifts</a></li>
+    <li><a href="final.html">Surprise</a></li>
+  </ul>
+</nav>
+<!-- NAVBAR END -->
+<div class="container">
+  <h1>🎀 Gift 2 — Gratitude List</h1>
+
+  <div class="bubble">Grateful for the kind of person you are</div>
+  <div class="bubble">Grateful for the kind of Sunday school teacher you are</div>
+  <div class="bubble">Grateful for the way you fulfill each responsibility you’re assigned</div>
+  <div class="bubble">Grateful for the efforts you put in everything you do</div>
+  <div class="bubble">Grateful for the love you have for everyone</div>
+  <div class="bubble">Grateful for the obedience you have for your parents</div>
+  <div class="bubble">Grateful for the discipline that you have</div>
+  <div class="bubble">Grateful for your love for psychology (doubtful if that's even more than what you have for me)</div>
+  <div class="bubble">Grateful for your smile</div>
+  <div class="bubble">Grateful for your hunger for GOD</div>
+  <div class="bubble">Grateful for putting GOD first before everything</div>
+  <div class="bubble">Grateful for putting others over self</div>
+  <div class="bubble">Grateful for the care you have</div>
+  <div class="bubble">Grateful for the encouragement you give</div>
+  <div class="bubble">Grateful for being the water tank of the house</div>
+  <div class="bubble">Grateful for saying NO when needed</div>
+  <div class="bubble">Grateful for living without expectations</div>
+  <div class="bubble">Grateful for existing 😁</div>
+  <div class="bubble">Grateful for putting up with me</div>
+  <div class="bubble">Grateful for making the world a better place</div>
+  <div class="bubble">Grateful for being a mature person</div>
+
+  <a class="back" href="gifts.html">⬅ Back</a>
+</div>
+</body>
+</html>

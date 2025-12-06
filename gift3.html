@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift 3 - Notes for Every Mood</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ---------------- ROOT VARIABLES ---------------- */
+:root {
+  --primary: #6a5acd;
+  --secondary: #ff7e5f;
+  --text: #3a3a3a;
+  --card-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255,255,255,0.35);
+  --bg-gradient: linear-gradient(135deg, #fbe9e7, #fff3e0, #e8eaf6);
+}
+
+/* ---------------- GLOBAL ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: var(--text);
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav.navbar {
+  width: 100%;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: 0.25s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  color: #fff;
+}
+
+.nav-links .close-btn {
+  display: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+/* ---------------- HAMBURGER ---------------- */
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+#menu-toggle:checked ~ .nav-links {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: 100vh;
+  padding: 80px 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  border-left: 1px solid var(--glass-border);
+  gap: 20px;
+}
+
+#menu-toggle:checked ~ .nav-links .close-btn {
+  display: block;
+}
+
+/* ---------------- CONTAINER ---------------- */
+.container {
+  width: 95%;
+  max-width: 750px;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 22px;
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  margin-top: 30px;
+}
+
+h1 {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+h2 {
+  margin-top: 30px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+h2 > span {
+  color: #444;
+}
+
+ul {
+  /* margin-top: 12px; */
+  padding-left: 20px;
+}
+
+li {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+
+.back {
+  display: block;
+  margin-top: 35px;
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  color: #fff;
+  border-radius: 14px;
+  text-decoration: none;
+}
+
+.hope {
+  font-size: 1.05rem;
+}
+
+.exercise {
+  color: var(--primary);
+  font-weight: 700;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  body { padding: 20px; }
+
+  .container { padding: 28px; border-radius: 18px; }
+
+  h1 { font-size: 2rem; margin-bottom: 28px; }
+
+  h2 { font-size: 1.2rem; margin-top: 22px; }
+
+  li { font-size: 1.05rem; line-height: 1.5rem; }
+
+  .back { font-size: 1.1rem; padding: 10px; }
+
+  .hamburger { 
+    display: flex;
+    margin-left: 12px;
+  }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR START -->
+<nav class="navbar">
+  <div class="logo">📜 HAPPY NEW YEAR</div>
+
+  <input type="checkbox" id="menu-toggle">
+  <label class="hamburger" for="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="message.html">Message</a></li>
+    <li><a href="gifts.html" class="active">Gifts</a></li>
+    <li><a href="./final.html">Surprise</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <h1>📜 Notes for Every Mood</h1>
+
+  <!-- HAPPY -->
+  <h2><span>😊</span> When You’re Happy</h2>
+  <ul>
+    <li>“Every good and perfect gift is from above.” — James 1:17</li>
+    <li>“The Lord has done great things for us.” — Psalm 126:3</li>
+    <li>“Rejoice in the Lord always.” — Philippians 4:4</li>
+  </ul>
+
+  <!-- PEACE -->
+  <h2><span>😌</span> When You Need Peace</h2>
+  <ul>
+    <li>“My peace I give you.” — John 14:27</li>
+    <li>“Be still, and know that I am God.” — Psalm 46:10</li>
+    <li>“The Lord blesses His people with peace.” — Psalm 29:11</li>
+  </ul>
+
+  <!-- SAD -->
+  <h2><span>😞</span> When You’re Sad</h2>
+  <ul>
+    <li>“The Lord is close to the brokenhearted.” — Psalm 34:18</li>
+    <li>“He heals the brokenhearted.” — Psalm 147:3</li>
+    <li>“Joy comes in the morning.” — Psalm 30:5</li>
+  </ul>
+
+  <!-- WEAK -->
+  <h2><span>💪</span> When You Feel Weak</h2>
+  <ul>
+    <li>“I can do all things through Christ.” — Philippians 4:13</li>
+    <li>“His grace is sufficient.” — 2 Corinthians 12:9</li>
+    <li>“The Lord is my strength.” — Psalm 28:7</li>
+  </ul>
+
+  <!-- COURAGE -->
+  <h2><span>🌟</span> When You Need Courage</h2>
+  <ul>
+    <li>“Do not fear, for I am with you.” — Isaiah 41:10</li>
+    <li>“Be strong and courageous.” — Joshua 1:9</li>
+    <li>“The Lord is my helper; I will not be afraid.” — Hebrews 13:6</li>
+  </ul>
+
+  <!-- GUIDANCE -->
+  <h2><span>🧭</span> When You Need Guidance</h2>
+  <ul>
+    <li>“He will direct your paths.” — Proverbs 3:6</li>
+    <li>“Your word is a lamp to my feet.” — Psalm 119:105</li>
+    <li>“I will instruct you and teach you.” — Psalm 32:8</li>
+  </ul>
+
+  <!-- HOPE -->
+  <h2><span>🌈</span> When You Need Hope</h2>
+  <ul class="hope">
+    <li>“For I know the plans I have for you.” — Jeremiah 29:11</li>
+    <li>“Hope in the Lord… He will renew your strength.” — Isaiah 40:31</li>
+    <li>“We have this hope as an anchor for the soul.” — Hebrews 6:19</li>
+  </ul>
+
+  <!-- ALONE -->
+  <h2><span>🤍</span> When You Feel Alone</h2>
+  <ul>
+    <li>“I will never leave you nor forsake you.” — Hebrews 13:5</li>
+    <li>“I am with you always.” — Matthew 28:20</li>
+    <li>“You are precious in my sight.” — Isaiah 43:4</li>
+  </ul>
+
+  <!-- COMFORT -->
+  <h2><span>❤️</span> When You Need Comfort</h2>
+  <ul>
+    <li>“As a mother comforts her child, so will I comfort you.” — Isaiah 66:13</li>
+    <li>“He will wipe every tear.” — Revelation 21:4</li> 
+    <li>“Cast all your cares on Him.” — 1 Peter 5:7</li>
+  </ul>
+
+  <!-- GRATEFUL -->
+  <h2><span>✨</span> When You’re Grateful</h2>
+  <ul>
+    <li>“Give thanks to the Lord, for He is good.” — Psalm 107:1</li>
+    <li>“In everything give thanks.” — 1 Thessalonians 5:18</li>
+    <li>“Bless the Lord, O my soul.” — Psalm 103:1</li>
+  </ul>
+
+  <!-- PATIENCE -->
+  <h2><span>🌱</span> When You Need Patience</h2>
+  <ul>
+    <li>“Wait for the Lord; be strong.” — Psalm 27:14</li>
+    <li>“Those who wait on the Lord shall renew their strength.” — Isaiah 40:31</li>
+    <li>“Love is patient.” — 1 Corinthians 13:4</li>
+  </ul>
+
+  <!-- LOST -->
+  <h2><span>🔥</span> When You Feel Lost</h2>
+  <ul>
+    <li>“The Lord is my shepherd.” — Psalm 23:1</li>
+    <li>“He restores my soul.” — Psalm 23:3</li>
+    <li>“Call to me and I will answer you.” — Jeremiah 33:3</li>
+  </ul>
+
+  <!-- STRESSED -->
+  <h2><span>🌤</span> When You’re Stressed</h2>
+  <ul>
+    <li>“Come to me… I will give you rest.” — Matthew 11:28</li>
+    <li>“Cast your burden on the Lord.” — Psalm 55:22</li>
+    <li>“My grace is sufficient.” — 2 Corinthians 12:9</li>
+  </ul>
+
+  <!-- FORGIVENESS -->
+  <h2><span>🤲</span> When You Need Forgiveness</h2>
+  <ul>
+    <li>“If we confess our sins, He forgives.” — 1 John 1:9</li>
+    <li>“As far as the east is from the west…” — Psalm 103:12</li>
+    <li>“There is no condemnation for those in Christ.” — Romans 8:1</li>
+  </ul>
+
+  <!-- KEEP GOING -->
+  <h2><span>✝️</span> When You Need Strength to Keep Going</h2>
+  <ul>
+    <li>“The Lord will fight for you.” — Exodus 14:14</li>
+    <li>“Do not grow weary in doing good.” — Galatians 6:9</li>
+    <li>“My power is made perfect in weakness.” — 2 Corinthians 12:9</li>
+  </ul>
+
+
+   <!-- ANXIOUS -->
+  <h2><span>😟</span> When You’re Anxious</h2>
+  <ul>
+    <li>“Cast all your anxiety on Him.” — 1 Peter 5:7</li>
+    <li>“My peace I give you… do not be afraid.” — John 14:27</li>
+    <li>“Your consolation brought me joy.” — Psalm 94:19</li>
+  </ul>
+
+  <!-- ANGRY -->
+  <h2><span>😠</span> When You’re Angry</h2>
+  <ul>
+    <li>“Be slow to anger.” — James 1:19</li>
+    <li>“A gentle answer turns away wrath.” — Proverbs 15:1</li>
+    <li>“Do not let the sun go down while you are still angry.” — Ephesians 4:26</li>
+  </ul>
+
+  <!-- Healthy Pride -->
+  <h2><span>😌</span> When You’re Feeling Proud (healthy pride)</h2>
+  <ul>
+    <li>“Let the one who boasts boast in the Lord.” — Jeremiah 9:24</li>
+    <li>“Every good and perfect gift is from above.” — James 1:17</li>
+    <li>“Humble yourselves… and He will lift you up.” — James 4:10</li>
+  </ul>
+
+  <!-- Too Hyped / Emotionally High -->
+  <h2><span>😎</span> When You’re Too Hyped / Emotionally High</h2>
+  <ul>
+    <li>“Be still before the Lord.” — Psalm 37:7</li>
+    <li>“In quietness and trust is your strength.” — Isaiah 30:15</li>
+    <li>“Set your mind on things above.” — Colossians 3:2</li>
+  </ul>
+
+  <!-- Disappointed -->
+  <h2><span>😎</span> When You’re Disappointed</h2>
+  <ul>
+    <li>“The Lord is good to those whose hope is in Him.” — Lamentations 3:25</li>
+    <li>“Blessed is the one who trusts in the Lord.” — Jeremiah 17:7</li>
+    <li>“Cast your burden on the Lord.” — Psalm 55:22</li>
+  </ul>
+  
+<h2><span>🤸</span> When You Feel Like Not Exercising</h2>
+<ul>
+  <li>“Do you not know that your bodies are temples of the Holy Spirit?” — 1 Corinthians 6:19</li>
+  <li>“For physical training is of <span class="exercise">some value</span>, but godliness has value for <span class="exercise">all things</span>.” — 1 Timothy 4:8</li>
+  <li>“She sets about her work vigorously; her arms are strong for her tasks.” — Proverbs 31:17</li>
+  <li>“Dear friend, I pray that you may enjoy good health and that all may go well with you.” — 3 John 1:2</li>
+  <li>“Do not be wise in your own eyes; fear the Lord and shun evil. This will bring health to your body and nourishment to your bones.” — Proverbs 3:7-8</li>
+</ul>
+
+  <a class="back" href="gifts.html">⬅ Back</a>
+</div>
+</body>
+</html>
